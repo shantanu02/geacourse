@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<!-- Navbar -->
+
+
+<div class="container-fluid main-container bg-info">
+  <div class="row" style="height:10vh;"></div>
+  <div class="row" style="height:80vh;">
+    <div class="col-2"></div>
+    <div class="col-12 col-md-8 ">
+      <div class="row" style="height:80vh;">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center signup-content">
+          <div class="text-style-headings">Welcome Back,</div>
+          <div class="text-style">Sign In to continue</div>
+        </div>
+        <div class="col-md-6 p-4 d-flex flex-column justify-content-center  signup-form">
+          <div class=" mb-3 text-style-headings">Sign In</div>
+          <div [formGroup]="myform">
+
+            <div class="form-group">
+              <input type="email" class="form-control" id="user-email" placeholder="Email Address"
+                formControlName="email" />
+              <!-- Validation status  -->
+              <div *ngIf="myform.get('email').invalid && myform.get('email').touched" style="color:crimson">
+                <small>Please Enter Valid Email Address !</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password" formControlName="password" />
+              <!-- Validation status  -->
+              <div *ngIf="myform.get('password').invalid && myform.get('password').touched" style="color:crimson">
+                <small>Password Must Contain minimum 8 characters</small>
+              </div>
+              <!-- End  -->
+            </div>
+
+
+            <button class="btn btn-primary" (click)="readData()">Submit</button>
+
+
+          </div>
+          <div class="mt-3 text-style" text-style>
+            <span>Don't have an Account ? </span>
+            <a routerLink="/Signup" id="back-signup">Sign Up</a>
+
+          </div>
+          <div class="mt-3 text-style" text-style>
+
+            <a routerLink="/Forgotpassword" id="to-forget-pass">Forgot Password?</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row" style="height:10vh;"></div>
+
+</div>
+
+
+<!-- footer -->
+<app-footer></app-footer>

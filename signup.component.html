@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+<!-- Navbar -->
+
+<div class="container-fluid main-container bg-info">
+  <div class="row" style="height:10vh;"></div>
+  <div class="row" style="height:80vh;">
+    <div class="col-2"></div>
+    <div class="col-12 col-md-8 ">
+      <div class="row" style="height:80vh;">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center signup-content">
+          <div class="text-style-headings">New User</div>
+          <div class="text-style">Sign Up to continue</div>
+        </div>
+        <div class="col-md-6 p-4 signup-form">
+          <div class=" mb-3 text-style-headings">Sign Up</div>
+          <div [formGroup]="myFormGroup">
+
+            <div class="form-group">
+              <input type="email" class="form-control" id="user-email" placeholder="Email Address"
+                formControlName="email" />
+              <!-- Validation status  -->
+              <div class="incorrect" *ngIf="myFormGroup.get('email').invalid && myFormGroup.get('email').touched">
+                <small>Please Enter Valid Email Address !</small>
+              </div>
+              <!-- <div class="correct" *ngIf="myFormGroup.get('email').valid && myFormGroup.get('email').touched">
+                <small>You can proceed further !</small>
+              </div> -->
+              <!-- End  -->
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="user-name" placeholder="Username"
+                formControlName="username" />
+              <!-- Validation status  -->
+              <div class="incorrect" *ngIf="myFormGroup.get('username').invalid && myFormGroup.get('username').touched">
+                <small>Please Enter Valid Username</small>
+              </div>
+              <!-- <div class="correct" *ngIf="myFormGroup.get('username').valid && myFormGroup.get('username').touched">
+                <small>You can proceed further !</small> </div>-->
+
+              <!-- End  -->
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password" formControlName="password" />
+              <!-- Validation status  -->
+              <div class="incorrect" *ngIf="myFormGroup.get('password').invalid && myFormGroup.get('password').touched">
+                <small>Password Must Contain minimum 8 characters</small>
+              </div>
+              <!-- End  -->
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Confirm Password"
+                formControlName="confirmPassword" />
+              <div class="incorrect"
+                *ngIf="myFormGroup.get('confirmPassword').invalid && myFormGroup.get('confirmPassword').touched">
+                <small>Password Must Contain minimum 8 characters</small>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="firt-name" placeholder="First Name"
+                formControlName="first_name" />
+              <div class="incorrect"
+                *ngIf="myFormGroup.get('first_name').invalid && myFormGroup.get('first_name').touched">
+                <small>First name must contain atleast 2 characters and only alphabets </small>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="last-name" placeholder="Last Name"
+                formControlName="last_name" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="phone-number" placeholder="Phone Number"
+                formControlName="phone_number" />
+              <div class="incorrect"
+                *ngIf="myFormGroup.get('phone_number').invalid && myFormGroup.get('phone_number').touched">
+                <small>Phone number must conatin minimum 9 and maximum 10 numbers.</small>
+              </div>
+            </div>
+
+
+
+          </div>
+          <button class="btn btn-primary" (click)="registerUser()">Submit</button>
+          <div class="mt-3 text-style">
+            <span>Already have an Account ? </span>
+            <a routerLink="/Signin" id="back-signin">Sign In</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row" style="height:10vh;"></div>
+
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>
